@@ -272,46 +272,45 @@ curl -X POST http://localhost:3000/v1/chat/completions \
 
 ## 🔄 Switching Platforms & Models
 
-### Platform-Specific Model Names (February 26, 2026)
+### Switch Between Platforms (Easy!)
 
-Here is a complete list of active web chat model names for each service's official web interface:
+Just change the `platform` field in your API call:
 
-#### **ChatGPT (chatgpt.com)**
-- **GPT-5.2 Instant** (fast/default mode)
-- **GPT-5.2 Thinking** (deeper reasoning mode)
-- **GPT-5.2 Pro** (higher-tier/paid variant)
+```javascript
+// ChatGPT
+{
+  "platform": "chatgpt",
+  "model": "gpt-5.2-instant",
+  "messages": [{"role": "user", "content": "Hello"}]
+}
 
-(Note: GPT-4o family retired mid-February 2026.)
+// Claude  
+{
+  "platform": "claude",
+  "model": "claude-sonnet-4.6",
+  "messages": [{"role": "user", "content": "Hello"}]
+}
 
-#### **Claude (claude.ai)**
-- **Claude Sonnet 4.6** (current default for free & Pro users)
-- **Claude Opus 4.6** (flagship/highest intelligence)
-- **Claude Haiku 4.5** (fast/lightweight)
+// Grok
+{
+  "platform": "grok",
+  "model": "grok-4.20",
+  "messages": [{"role": "user", "content": "Hello"}]
+}
+```
 
-#### **Grok (grok.com / grok.x.ai)**
-- **Grok 4.20** (latest flagship, multi-agent system – powers Auto mode)
+### Platform-Specific Model Names (Updated February 26, 2026)
 
-(Auto mode intelligently switches between Fast/Expert; paid tiers unlock Grok 4.20 Heavy.)
+| Platform | Model Names | Notes |
+|----------|-------------|-------|
+| **ChatGPT** | `gpt-5.2-instant`, `gpt-5.2-thinking`, `gpt-5.2-pro` | GPT-4o family retired mid-February 2026 |
+| **Claude** | `claude-sonnet-4.6`, `claude-opus-4.6`, `claude-haiku-4.5` | Sonnet 4.6 is default for free & Pro users |
+| **Grok** | `grok-4.20` | Multi-agent system, powers Auto mode |
+| **Kimi** | `kimi-k2.5-instant`, `kimi-k2.5-thinking`, `kimi-k2.5-agent`, `kimi-k2.5-agent-swarm-beta` | Latest flagship, multimodal/agentic |
+| **DeepSeek** | `deepseek-v3.2-chat`, `deepseek-v3.2-reasoner` | Chat/non-thinking mode and Reasoner/Thinking mode |
+| **Gemini** | `gemini-3.1-pro`, `gemini-3-flash`, `gemini-3-pro` | Deep Think mode available on Ultra/pro tiers |
 
-#### **Kimi (kimi.moonshot.cn or kimi.com)**
-- **Kimi K2.5 Instant**
-- **Kimi K2.5 Thinking**
-- **Kimi K2.5 Agent**
-- **Kimi K2.5 Agent Swarm (Beta)**
-
-Latest flagship, multimodal/agentic.
-
-#### **DeepSeek (chat.deepseek.com)**
-- **DeepSeek-V3.2 Chat** (chat/non-thinking mode)
-- **DeepSeek-V3.2 Reasoner** (reasoning/thinking mode)
-
-#### **Gemini (gemini.google.com)**
-- **Gemini 3.1 Pro** (newest advanced/preview, top-tier)
-- **Gemini 3 Flash** (fast)
-- **Gemini 3 Pro** (standard high-capability)
-- Deep Think mode (available on Ultra/pro tiers)
-
-These are the exact names shown in the web interfaces or the models actively powering the chats right now. Availability can vary by free vs. paid tiers (e.g., Opus/4.6 or 3.1 Pro often require Pro/Ultra subscriptions).
+**Note:** Availability can vary by free vs. paid tiers (e.g., Opus/4.6 or 3.1 Pro often require Pro/Ultra subscriptions).
 
 ---
 
@@ -391,7 +390,7 @@ const response = await fetch('http://localhost:3000/v1/chat/completions', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({
-    messages: [{role: 'user', content': 'Hello!'}],
+    messages: [{role: 'user', content: 'Hello!'}],
     platform: 'chatgpt',
     'model': 'gpt-5.2-instant'
   })
