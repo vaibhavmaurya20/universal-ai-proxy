@@ -1,0 +1,11 @@
+2026-02-26T09:19:05.916Z [WARN]: No adapter found for chatgpt, using generic:
+2026-02-26T09:19:05.920Z [INFO]: ✓ Loaded adapter for ChatGPT
+2026-02-26T09:19:05.923Z [INFO]: ✓ Loaded adapter for Grok
+2026-02-26T09:19:05.925Z [INFO]: ✓ Loaded adapter for Claude
+2026-02-26T09:19:05.926Z [INFO]: ✓ Loaded adapter for Kimi
+2026-02-26T09:19:05.927Z [INFO]: ✓ Loaded adapter for DeepSeek
+2026-02-26T09:19:05.928Z [WARN]: No adapter found for gemini, using generic:
+2026-02-26T09:19:05.928Z [INFO]: ✓ Loaded adapter for Gemini
+2026-02-26T09:19:05.938Z [INFO]: 🚀 Universal AI Proxy Server running on http://localhost:3000
+2026-02-26T09:19:05.940Z [INFO]: 📖 API Docs: http://localhost:3000/api/docs
+2026-02-26T09:19:05.940Z [INFO]: 🔐 Auth Callback: http://localhost:3000/api/auth/callback

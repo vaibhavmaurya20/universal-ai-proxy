@@ -1,0 +1,15 @@
+
+> universal-ai-proxy@1.0.0 start
+> node src/index.js
+
+[33m2026-02-26T09:19:05.916Z [WARN]: No adapter found for chatgpt, using generic:[39m
+[32m2026-02-26T09:19:05.920Z [INFO]: ✓ Loaded adapter for ChatGPT[39m
+[32m2026-02-26T09:19:05.923Z [INFO]: ✓ Loaded adapter for Grok[39m
+[32m2026-02-26T09:19:05.925Z [INFO]: ✓ Loaded adapter for Claude[39m
+[32m2026-02-26T09:19:05.926Z [INFO]: ✓ Loaded adapter for Kimi[39m
+[32m2026-02-26T09:19:05.927Z [INFO]: ✓ Loaded adapter for DeepSeek[39m
+[33m2026-02-26T09:19:05.928Z [WARN]: No adapter found for gemini, using generic:[39m
+[32m2026-02-26T09:19:05.928Z [INFO]: ✓ Loaded adapter for Gemini[39m
+[32m2026-02-26T09:19:05.938Z [INFO]: 🚀 Universal AI Proxy Server running on http://localhost:3000[39m
+[32m2026-02-26T09:19:05.940Z [INFO]: 📖 API Docs: http://localhost:3000/api/docs[39m
+[32m2026-02-26T09:19:05.940Z [INFO]: 🔐 Auth Callback: http://localhost:3000/api/auth/callback[39m
