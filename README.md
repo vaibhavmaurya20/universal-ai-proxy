@@ -249,7 +249,7 @@ curl -X POST http://localhost:3000/v1/chat/completions \
       {"role": "user", "content": "Hello!"}
     ],
     "platform": "claude",
-    "model": "claude-3-5-sonnet"
+    "model": "claude-sonnet-4.6"
   }'
 ```
 
@@ -263,7 +263,7 @@ curl -X POST http://localhost:3000/v1/chat/completions \
       {"role": "user", "content": "Write a short story about AI"}
     ],
     "platform": "chatgpt",
-    "model": "gpt-4",
+    "model": "gpt-5.2-instant",
     "stream": true
   }'
 ```
@@ -280,35 +280,37 @@ Just change the `platform` field in your API call:
 // ChatGPT
 {
   "platform": "chatgpt",
-  "model": "gpt-4",
+  "model": "gpt-5.2-instant",
   "messages": [{"role": "user", "content": "Hello"}]
 }
 
 // Claude  
 {
   "platform": "claude",
-  "model": "claude-3-5-sonnet",
+  "model": "claude-sonnet-4.6",
   "messages": [{"role": "user", "content": "Hello"}]
 }
 
 // Grok
 {
   "platform": "grok",
-  "model": "grok-2",
+  "model": "grok-4.20",
   "messages": [{"role": "user", "content": "Hello"}]
 }
 ```
 
-### Platform-Specific Model Names
+### Platform-Specific Model Names (Updated February 26, 2026)
 
-| Platform | Model Names |
-|----------|-------------|
-| **ChatGPT** | `gpt-4`, `gpt-4-turbo`, `gpt-3.5-turbo` |
-| **Claude** | `claude-3-5-sonnet`, `claude-3-opus`, `claude-3-haiku` |
-| **Grok** | `grok-2`, `grok-1.5` |
-| **Kimi** | `kimi-k2`, `kimi-k1` |
-| **DeepSeek** | `deepseek-chat`, `deepseek-coder` |
-| **Gemini** | `gemini-1.5-pro`, `gemini-1.5-flash` |
+| Platform | Model Names | Notes |
+|----------|-------------|-------|
+| **ChatGPT** | `gpt-5.2-instant`, `gpt-5.2-thinking`, `gpt-5.2-pro` | GPT-4o family retired mid-February 2026 |
+| **Claude** | `claude-sonnet-4.6`, `claude-opus-4.6`, `claude-haiku-4.5` | Sonnet 4.6 is default for free & Pro users |
+| **Grok** | `grok-4.20` | Multi-agent system, powers Auto mode |
+| **Kimi** | `kimi-k2.5-instant`, `kimi-k2.5-thinking`, `kimi-k2.5-agent`, `kimi-k2.5-agent-swarm-beta` | Latest flagship, multimodal/agentic |
+| **DeepSeek** | `deepseek-v3.2-chat`, `deepseek-v3.2-reasoner` | Chat/non-thinking mode and Reasoner/Thinking mode |
+| **Gemini** | `gemini-3.1-pro`, `gemini-3-flash`, `gemini-3-pro` | Deep Think mode available on Ultra/pro tiers |
+
+**Note:** Availability can vary by free vs. paid tiers (e.g., Opus/4.6 or 3.1 Pro often require Pro/Ultra subscriptions).
 
 ---
 
@@ -325,7 +327,7 @@ ws.onopen = () => {
     payload: {
       messages: [{role: 'user', content: 'Tell me a story'}],
       platform: 'claude',
-      model: 'claude-3-5-sonnet',
+      model: 'claude-sonnet-4.6',
       stream: true
     }
   }));
@@ -375,7 +377,8 @@ import requests
 
 response = requests.post('http://localhost:3000/v1/chat/completions', json={
     'messages': [{'role': 'user', 'content': 'Hello!'}],
-    'platform': 'claude'
+    'platform': 'claude',
+    'model': 'claude-sonnet-4.6'
 })
 print(response.json())
 ```
@@ -388,7 +391,8 @@ const response = await fetch('http://localhost:3000/v1/chat/completions', {
   headers: {'Content-Type': 'application/json'},
   body: JSON.stringify({
     messages: [{role: 'user', content: 'Hello!'}],
-    platform: 'chatgpt'
+    platform: 'chatgpt',
+    'model': 'gpt-5.2-instant'
   })
 });
 const data = await response.json();
@@ -402,7 +406,8 @@ curl -X POST http://localhost:3000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "messages": [{"role": "user", "content": "Explain quantum computing"}],
-    "platform": "claude"
+    "platform": "claude",
+    "model": "claude-sonnet-4.6"
   }' | jq
 ```
 
@@ -464,7 +469,7 @@ LOG_LEVEL=debug npm start
     }
   ],
   "platform": "claude",
-  "model": "claude-3-5-sonnet",
+  "model": "claude-sonnet-4.6",
   "stream": false,
   "temperature": 0.7,
   "max_tokens": 1000
@@ -477,7 +482,7 @@ LOG_LEVEL=debug npm start
   "id": "chat-12345",
   "object": "chat.completion",
   "created": 1234567890,
-  "model": "claude-3-5-sonnet",
+  "model": "claude-sonnet-4.6",
   "choices": [
     {
       "index": 0,
@@ -528,3 +533,5 @@ MIT License - Free to use, modify, and distribute.
 **Made with ❤️ using Playwright, Express, and Node.js**
 
 **GitHub Repository:** https://github.com/vaibhavmaurya20/universal-ai-proxy
+
+**Last Updated:** February 26, 2026 (Model names updated with latest versions)
